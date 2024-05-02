@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "CommandExtensionsApp",
+  "display": "standalone",
+  "name": "CommandExtensionsApp",
+  "short_name": "CommandExtensionsApp",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}

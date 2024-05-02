@@ -1,0 +1,43 @@
+﻿<Page x:Class="CommandExtensionsApp.MainPage"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:local="using:CommandExtensionsApp"
+	  xmlns:utu="using:Uno.Toolkit.UI"
+	  xmlns:um="using:Uno.Material"
+	  Background="{ThemeResource BackgroundBrush}">
+	<StackPanel utu:SafeArea.Insets="VisibleBounds"
+				Spacing="20"
+				Width="300"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center">
+		<PasswordBox PlaceholderText="Password"
+					 utu:CommandExtensions.Command="{Binding DoSomething}" />
+
+		<PasswordBox PlaceholderText="Password"
+					 utu:CommandExtensions.Command="{Binding DoSomething}"
+					 utu:CommandExtensions.CommandParameter="Param" />
+
+		<ItemsRepeater ItemsSource="{Binding Items}"
+					   utu:CommandExtensions.Command="{Binding DoSomething}" />
+
+		<utu:LoadingView Source="{Binding DoSomething}">
+			<utu:LoadingView.LoadingContent>
+				<StackPanel>
+					<TextBlock HorizontalAlignment="Center"
+							   Text="Parameter Value: ">
+						<TextBlock.Inlines>
+							<Run Text="{Binding CommandParameter}" />
+						</TextBlock.Inlines>
+					</TextBlock>
+					<ProgressRing Width="50"
+								  Height="50" />
+				</StackPanel>
+			</utu:LoadingView.LoadingContent>
+			<utu:LoadingView.Content>
+				<TextBlock HorizontalAlignment="Center"
+						   Text="Command Not Running" />
+			</utu:LoadingView.Content>
+		</utu:LoadingView>
+	</StackPanel>
+</Page>
+
